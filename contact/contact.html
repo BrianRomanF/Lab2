@@ -17,7 +17,6 @@
         e.preventDefault();
         const formData = new FormData(e.target).entries();
         const myEmail = "broman.89@gmail.com";
-        //console.log("formData", formData);
         const data = Object.fromEntries(formData);
         console.log("Data from the form", data);
         sendEmail(myEmail, data.email, data.subject, data.body);
@@ -29,23 +28,12 @@
         );
       }
       function sendEmail(to, from, subject, body) {
-        /*   how to do it with document.get..
-        const yourEmail = document.getElementById("yourEmail").value; 
-        const yourSubject = document.getElementById("yourSubject").value; 
-        const yourMessage = document.getElementById("yourMessage").value;  */
-        console.log({ to, from, subject, body });
         Email.send({
           SecureToken: "d494aa80-45d2-4e0c-a51a-766efc1dbf63",
           To: to,
           From: from,
           Subject: subject,
           Body: body,
-          //   Host: "smtp.elasticemail.com",
-          //   Username: "broman.89@gmail.com",
-          //   Password: "650EB40C1B57B256F70E30B7FCD3D15CA0B4",
-          // To: 'kingsley.huang@institutedata.com',
-          // Subject: "This is the subject test",
-          //  Body: "And this is the body of the test"
         }).then((message) => alert(message));
       }
     </script>
